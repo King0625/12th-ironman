@@ -1,5 +1,8 @@
-# 2020 it 邦幫忙鐵人賽爬蟲 
+# 2020 it 邦幫忙鐵人賽爬蟲
+## 專案說明 
+1. 透過爬蟲的方式一次監控所有[好想工作室參賽者](https://ithelp.ithome.com.tw/2020-12th-ironman/signup/team/138)的發文狀況，並且為了避免爬爆 [it 邦幫忙網站](https://ithelp.ithome.com.tw/)與優化爬蟲 API，透過 redis 引入 server-side cache
 
+2. 透過 slack webhook，以 node-cron 的方式定時定點提醒尚未發文的成員 -- [[文件說明]](https://github.com/King0625/12th-ironman/tree/master/tasks)
 
 ## 執行環境
 - node: 12.18.3
@@ -20,5 +23,8 @@
 `cp members.example.js members.js`
 
 備註：
-1. camp 為好想工作室參賽成員所屬的 camp，若不需要此欄位，則無法使用 slack webhook 提醒的功能
-2. slackId 若不需要，則 slack webhook 提醒也無法使用
+1. camp 為好想工作室參賽成員所屬的 camp，若不用此欄位，則無法使用 slack webhook 提醒的功能
+2. slackId 用途為透過 slack 提醒尚未發文的成員，若不需要此欄位，則 slack webhook 提醒也無法使用
+
+## 執行
+`node index.js`
