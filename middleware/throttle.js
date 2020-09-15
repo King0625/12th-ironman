@@ -15,6 +15,7 @@ module.exports = limit => {
     req.requestRemains = limit - getNumsOfRequest - 1;
 
     if (req.requestRemains < 0) {
+      console.log(`Too many requests from ip: ${ip}`);
       return res.status(429).json({
         error: "Too many requests"
       });
