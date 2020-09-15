@@ -42,7 +42,7 @@ class Ironman extends Scraper {
     const account = lastPageData.user.account;
     const avatar = lastPageData.user.avatar;
     const subject = lastPageData.ironman.subject;
-    const topic_count = lastPageData.ironman.topic_count;
+    const topicCount = lastPageData.ironman.topic_count;
     const lastPageArticles = lastPageData.articles;
     const lastArticle = lastPageArticles[lastPageArticles.length - 1];
 
@@ -64,7 +64,7 @@ class Ironman extends Scraper {
       avatar,
       subject,
       ironmanUrl,
-      topic_count,
+      topicCount,
       lastArticleLink,
       lastArticleSubject,
       lastFinishedDatetime,
