@@ -6,7 +6,7 @@ const Ironman = require('../src/ironman');
 const members = require('../members');
 
 router.get('/', async (req, res, next) => {
-  console.time("Request time:");
+  console.time("Spend time on this request");
   const fetchData = async () => {
     const request_in_progress = await redis.get('indexRoute');
     if (request_in_progress != null) {
@@ -37,7 +37,7 @@ router.get('/', async (req, res, next) => {
   }
 
   const data = await fetchData();
-  console.timeEnd("Request time");
+  console.timeEnd("Spend time on this request");
   res.append('X-RateLimit-Limit', req.rateLimit);
   res.append('X-RateLimit-Remaining', req.requestRemains);
   res.status(200).json({ data });
