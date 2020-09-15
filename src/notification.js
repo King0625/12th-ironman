@@ -7,7 +7,7 @@ class Notification extends Scraper {
     this.message = _message;
   }
 
-  async send(body) {
+  async send() {
     const options = {
       url: this.slackUrl,
       method: "POST",
