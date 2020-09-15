@@ -4,7 +4,7 @@
 
 2. 透過 slack webhook，以 node-cron 的方式定時定點提醒尚未發文的成員 -- [/tasks/warning.js](https://github.com/King0625/12th-ironman/blob/master/tasks/warning.js)
 
-    > 目前設計是[好想工作室](https://www.facebook.com/GoodideasStudio/)專用，請斟酌使用，參照[前置設定](#running-environment)
+    > 目前設計是[好想工作室](https://www.facebook.com/GoodideasStudio/)專用，請斟酌使用 (參照[前置設定](#running-environment))
 
 ## 執行環境
 
