@@ -27,7 +27,7 @@ router.get('/', async (req, res, next) => {
         promises.push(status);
       }
       data = await Promise.all(promises);
-      await redis.setex('result', 10, JSON.stringify(data));
+      await redis.setex('result', 60, JSON.stringify(data));
     } else {
       data = JSON.parse(redisData);
     }
