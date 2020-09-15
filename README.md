@@ -3,9 +3,11 @@
 1. 透過爬蟲的方式一次監控所有[好想工作室參賽者](https://ithelp.ithome.com.tw/2020-12th-ironman/signup/team/138)的發文狀況，並且為了避免爬爆 [it 邦幫忙網站](https://ithelp.ithome.com.tw/)與優化爬蟲 API，透過 redis 引入 server-side cache
 
 2. 透過 slack webhook，以 node-cron 的方式定時定點提醒尚未發文的成員 -- [/tasks/warning.js](https://github.com/King0625/12th-ironman/blob/master/tasks/warning.js)
-=> 目前設計是[好想工作室](https://www.facebook.com/GoodideasStudio/)專用，參照[前置設定](#running-environment)
+
+    --> 目前設計是[好想工作室](https://www.facebook.com/GoodideasStudio/)專用，參照[前置設定](#running-environment)
 
 <h2 id="running-environment">執行環境</h2>
+
 - node: 12.18.3
 - npm: 6.14.6
 - redis: 4.0.9
