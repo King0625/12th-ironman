@@ -2,7 +2,7 @@ const redis = require('../lib/redis');
 
 module.exports = limit => {
   return async (req, res, next) => {
-    const ip = req.ip;
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;;
     const getNumsOfRequest = await redis.get(ip);
     console.log(`${new Date().toLocaleString('en-US', { timeZone: 'Asia/Taipei' })} -- Numbers of requests from ${ip} this minute: ${getNumsOfRequest == null ? 0 : getNumsOfRequest} `);
 
