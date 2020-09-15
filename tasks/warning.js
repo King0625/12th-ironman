@@ -17,7 +17,6 @@ async function sendMessage(phase) {
   const hasNotFinishedFromIos = hasNotFinished.filter(el => el.camp == "iOS")
   const hasNotFinishedFromAndroid = hasNotFinished.filter(el => el.camp == "Android")
   const hasNotFinishedFromBackend = hasNotFinished.filter(el => el.camp == "Backend")
-  console.log(toSlackIds(hasNotFinishedFromWeb));
   let prefix;
   switch (phase) {
     case 0:
@@ -39,7 +38,7 @@ async function sendMessage(phase) {
 }
 
 function toSlackIds(member_lists) {
-  const slackIds = member_lists.map(el => findMembersByName(el.name).slackId);
+  const slackIds = member_lists.map(el => `<@${findMembersByName(el.name).slackId}>`);
   return slackIds.join(' ');
 }
 
@@ -48,7 +47,7 @@ function findMembersByName(name) {
   return member;
 }
 
-cron.schedule('57 14 * * *', async () => {
+cron.schedule('0 18 * * *', async () => {
   await sendMessage(0);
 })
 
