@@ -12,7 +12,10 @@ async function sendMessage(phase) {
   }
   const data = await Promise.all(promises);
   const hasNotFinished = data.filter(el => !el.hasFinishedToday);
-
+  if (hasNotFinished.length == 0) {
+    console.log(`${new Date().toLocaleString('en-US', { timeZone: 'Asia/Taipei' })} -- All members have completed!`);
+    return;
+  }
   const hasNotFinishedFromWeb = hasNotFinished.filter(el => el.camp == "Web")
   const hasNotFinishedFromIos = hasNotFinished.filter(el => el.camp == "iOS")
   const hasNotFinishedFromAndroid = hasNotFinished.filter(el => el.camp == "Android")
@@ -33,6 +36,7 @@ async function sendMessage(phase) {
   }
   const message = `${prefix}*web camp* : ${toSlackIds(hasNotFinishedFromWeb)}\n *backend camp* : ${toSlackIds(hasNotFinishedFromBackend)}\n *android camp* : ${toSlackIds(hasNotFinishedFromAndroid)}\n *iOS camp* : ${toSlackIds(hasNotFinishedFromIos)}\n`
 
+  console.log(message);
   const notification = new Notification(process.env.SLACK_WEBHOOK, message);
   await notification.send();
 }
