@@ -23,12 +23,15 @@ async function sendMessage(phase) {
   let prefix;
   switch (phase) {
     case 0:
-      prefix = "<!channel> :thinking_face: `18:00 未發文的同學` : \n ";
+      prefix = "<!channel> :thinking_face: `11:00 未發文的同學` : \n ";
       break;
     case 1:
-      prefix = "<!channel> :rage: `21:00 未發文的同學` : \n ";
+      prefix = "<!channel> :thinking_face: `18:00 未發文的同學` : \n ";
       break;
     case 2:
+      prefix = "<!channel> :rage: `21:00 未發文的同學` : \n ";
+      break;
+    case 3:
       prefix = "<!channel> :face_with_symbols_on_mouth: `21:30 未發文的同學` : \n ";
       break;
     default:
@@ -51,16 +54,20 @@ function findMembersByName(name) {
   return member;
 }
 
-cron.schedule('0 18 * * *', async () => {
+cron.schedule('0 11 * * *', async () => {
   await sendMessage(0);
 })
 
-cron.schedule('0 21 * * *', async () => {
+cron.schedule('0 18 * * *', async () => {
   await sendMessage(1);
 })
 
-cron.schedule('30 21 * * *', async () => {
+cron.schedule('0 21 * * *', async () => {
   await sendMessage(2);
+})
+
+cron.schedule('30 21 * * *', async () => {
+  await sendMessage(3);
 })
 
 module.exports = cron;
